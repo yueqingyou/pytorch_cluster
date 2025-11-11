@@ -30,6 +30,38 @@ All included operations work on varying data types and are implemented both for 
 
 ## Installation
 
+### DCU (Hygon) Environment
+
+For DCU (Hygon DCU with ROCm/HIP) environments, pytorch_cluster can be built directly from source.
+
+**Tested Environment:**
+- PyTorch: 2.4.1
+- OS: Ubuntu 22.04
+- DTK: 25.04.1
+- Python: 3.10
+
+**Installation Steps:**
+
+1. Clone this repository:
+```bash
+git clone https://github.com/yueqingyou/pytorch_cluster.git
+cd pytorch_cluster
+```
+
+2. Build and install:
+```bash
+FORCE_CUDA=1 pip install . --no-build-isolation
+```
+
+3. Verify installation:
+```python
+import torch
+import torch_cluster
+print(f"torch_cluster version: {torch_cluster.__version__}")
+```
+
+**Note:** The build system automatically applies HIP/ROCm compatibility through hipify during compilation for DCU environments.
+
 ### Binaries
 
 We provide pip wheels for all major OS/PyTorch/CUDA combinations, see [here](https://data.pyg.org/whl).
